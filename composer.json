@@ -1,0 +1,22 @@
+{
+    "name": "jpprtd/myUtilFunctions",
+    "description": "A simple my function for comfortable",
+    "keywords": ["comfotrable", "simple function", "jpprtd"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Voraphon Rithidech",
+            "email": "jpprtd@gmail.com",
+            "homepage": "https://rtd.monster"
+        }
+    ],
+    "require": {
+        "php": "^7.4"
+    }
+    "autoload": {
+        "psr-4": {
+            "myUtilFunctions\\": "src/"
+        }
+    }
+}
