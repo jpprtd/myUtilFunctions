@@ -1,5 +1,5 @@
 {
-    "name": "jpprtd/myUtilFunctions",
+    "name": "jpprtd/myutilfunctions",
     "description": "A simple my function for comfortable",
     "keywords": ["comfotrable", "simple function", "jpprtd"],
     "type": "library",
@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "myUtilFunctions\\": "src/"
+            "myutilfunctions\\": "src/"
         }
     }
 }
