@@ -1,9 +1,9 @@
 {
-    "name": "jpprtd/myutilfunctions",
+    "name": "jpprtd/myfunc",
     "description": "A simple my function for comfortable",
     "keywords": ["comfotrable", "simple function", "jpprtd"],
     "type": "library",
-    "license": "MIT",
+    "license": "WTFPL",
     "authors": [
         {
             "name": "Voraphon Rithidech",
