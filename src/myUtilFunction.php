@@ -5,11 +5,10 @@
 
     }
 
-namespace myfunc\db;
+namespace db;
 use Exception;
 use PDO;
 use PDOException;
-use find;
 class Database{
         private $uname;
         private $passw;
