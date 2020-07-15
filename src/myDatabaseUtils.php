@@ -1,9 +1,9 @@
 <?php
-namespace myfunc;
+namespace myDatabaseUtils;
 use Exception;
 use PDO;
 use PDOException;
-class Database{
+class myDatabaseUtils{
         private $uname;
         private $passw;
         private $dbnam;

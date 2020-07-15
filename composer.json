@@ -1,5 +1,5 @@
 {
-    "name": "jpprt/myfunc",
+    "name": "jpprt/myDatabaseUtils",
     "description": "This library for my utility functions.",
     "type": "library",
     "license": "MIT",
@@ -11,7 +11,7 @@
     ],
     "autoload":{
         "psr-4": {
-            "myfunc\\" : "src/"
+            "myDatabaseUtils\\" : "src/"
         }
     },
     "require": {}
