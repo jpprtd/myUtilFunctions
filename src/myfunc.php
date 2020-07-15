@@ -1,11 +1,5 @@
 <?php
-    namespace myfunc;
-
-    class Uitls{
-
-    }
-
-namespace db;
+namespace myfunc;
 use Exception;
 use PDO;
 use PDOException;
@@ -17,6 +11,7 @@ class Database{
         private $hostn;
         private $connt;
         private $dbtyp;
+        
         function __construct()
         {
             $this->hostn = (isset($GLOBALS['host']) ? $GLOBALS['host'] : '');
