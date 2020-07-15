@@ -1,22 +1,18 @@
 {
-    "name": "jpprtd/myfunc",
-    "description": "A simple my function for comfortable",
-    "keywords": ["comfotrable", "simple function", "jpprtd"],
+    "name": "jpprt/myfunc",
+    "description": "This library for my utility functions.",
     "type": "library",
-    "license": "WTFPL",
+    "license": "MIT",
     "authors": [
         {
-            "name": "Voraphon Rithidech",
-            "email": "jpprtd@gmail.com",
-            "homepage": "https://rtd.monster"
+            "name": "VORAPH",
+            "email": "jpprtd@gmail.com"
         }
     ],
-    "require": {
-        "php": "^7.4"
-    },
-    "autoload": {
+    "autoload":{
         "psr-4": {
-            "myfunc\\": "src/"
+            "myfunc\\" : "src/"
         }
-    }
+    },
+    "require": {}
 }
