@@ -149,16 +149,3 @@ class Database{
         }
 
     }
-
-
-    //$r = new Database($host = 'localhost', $username = 'root', $password = '', $db = 'godigitexample');
-    $r = new Database();
-    $r->HostName('localhost')->DbName('godigitexample')->Username('root');
-    $r->connect();
-    $id = $r->put("INSERT INTO tb_customer (customer_id, first_name, last_name, tel_no) VALUES (?,?,?,?)" , [1,'voraph', 'rtd', '080000000']);
-    echo $id;
-    $v = $r->get(['sql' => 'SELECT * FROM tb_customer']);
-    print_r($v);
-    //$r->get($groups = "date", $table = 'tb_customer', $fields = '', $wheres = "first_name = ?", $orders = "customer_id::<", $value = array(''));
-    
-    //print_r($r->get();
