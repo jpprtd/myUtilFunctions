@@ -17,6 +17,7 @@ class Database{
         private $table;
         private $hostn;
         private $connt;
+        private $dbtyp;
         function __construct()
         {
             $this->hostn = (isset($GLOBALS['host']) ? $GLOBALS['host'] : '');
@@ -24,6 +25,7 @@ class Database{
             $this->passw = (isset($GLOBALS['password']) ? $GLOBALS['password'] : '');
             $this->dbnam = (isset($GLOBALS['db']) ? $GLOBALS['db'] : '');
             $this->table = (isset($GLOBALS['table']) ? $GLOBALS['table'] : '');
+            $this->table = (isset($GLOBALS['type']) ? $GLOBALS['type'] : '');
         }
 
         function connect(){
@@ -35,12 +37,20 @@ class Database{
                 throw new Exception('Variable Username is not exist.');
 
             try {
-                $this->connt = new PDO("mysql:host=$this->hostn;dbname=$this->dbnam", $this->uname, $this->passw);
+                $this->connt = new PDO("$this->dbtyp:host=$this->hostn;dbname=$this->dbnam", $this->uname, $this->passw);
                 $this->connt->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch(PDOException $e) {
                 echo "Connection failed: " . $e->getMessage();
             }
             return $this->connt;
+        }
+
+        function DbType($n = null){
+            if($n != null){
+                $this->dbtyp = $n;
+                return $this;
+            }
+            return $this->dbtyp;
         }
 
         function HostName($n = null){
