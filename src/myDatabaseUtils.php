@@ -19,7 +19,7 @@ class myDatabaseUtils{
             $this->passw = (isset($GLOBALS['password']) ? $GLOBALS['password'] : '');
             $this->dbnam = (isset($GLOBALS['db']) ? $GLOBALS['db'] : '');
             $this->table = (isset($GLOBALS['table']) ? $GLOBALS['table'] : '');
-            $this->table = (isset($GLOBALS['type']) ? $GLOBALS['type'] : '');
+            $this->dbtyp = (isset($GLOBALS['type']) ? $GLOBALS['type'] : '');
         }
 
         function connect(){
@@ -37,6 +37,10 @@ class myDatabaseUtils{
                 echo "Connection failed: " . $e->getMessage();
             }
             return $this->connt;
+        }
+
+        function disconnect(){
+            $this->connt = null;
         }
 
         function DbType($n = null){
@@ -72,7 +76,7 @@ class myDatabaseUtils{
         }
 
         function Password($n = null){
-            if($n != null){
+            if($n != null || $n == ''){
                 $this->passw = $n;
                 return $this;
             }
@@ -99,7 +103,7 @@ class myDatabaseUtils{
                 $where = (isset($params['wheres']) && $params['wheres'] != '' ? $params['wheres'] : '');
                 $group = (isset($params['groups']) && $params['groups'] != '' ? $params['groups'] : '');
                 $order = (isset($params['orders']) && $params['orders'] != '' ? explode('::', $params['orders']) : []);
-                if(count($order) > 0){
+                if(count($order) == 2){
                     if(count($order) == 1)
                         $prefi = 'ASC';
                     if(count($order) == 2){
@@ -110,10 +114,14 @@ class myDatabaseUtils{
                     }
                     $order = $order[0];
                 }else{
-                    $order = $order[0];
+                    if(count($order) == 1){
+                        $order = $order[0];
+                    }else{
+                        $order = '';
+                    }
                 }
                 $group = (isset($params['groups']) ? $params['groups'] : '');
-                $sql = "SELECT $field FROM $this->table ".($where != "" ? "WHERE " . $where : '') . ($group != '' ? ' GROUP BY ' . $group : '') . " ORDER BY $order $prefi ";
+                $sql = "SELECT $field FROM $this->table ".($where != "" ? "WHERE " . $where : '') . ($group != '' ? ' GROUP BY ' . $group : '') . ($order != '' ? " ORDER BY $order $prefi " : '');
             }else{
                 $sql = $params['sql'];
             }
@@ -122,7 +130,7 @@ class myDatabaseUtils{
             $sth->execute($value);
             $sth->setFetchMode(PDO::FETCH_ASSOC);
             $v = $sth->fetchAll();
-            return (count($v) > 1 ? $v : count($v) == 1 ? $v[0] : false);
+            return (count($v) > 0 ? $v : false);
         }
         function post($sql, $value){
             try{
@@ -151,5 +159,5 @@ class myDatabaseUtils{
                 return false;
             }
         }
-
+        
     }
